@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Level Schools </title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
+</head>
+        <body>  
+                <style>
+        /* overlay */
+        .popup-overlay {
+        position: fixed;
+        inset: 0; /* shorthand for top/right/bottom/left:0 */
+        background: rgba(0,0,0,0.6);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        }
+        .popup-overlay.is-visible { display: flex; }
+
+        .popup-box {
+        background: #fff;
+        border-radius: 10px;
+        padding: 10px;
+        max-width: 90%;
+        width: 420px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        position: relative;
+        animation: pop .25s ease;
+        }
+        @keyframes pop { from { transform: scale(.95); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+
+        .popup-box img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        }
+
+        .close-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: transparent;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        line-height: 1;
+        }
+    </style>
+        </head>
+        <body>
+        <!-- <h1>My Website</h1>
+    <p>Some page content here. Click the button to re-open the popup.</p>
+    <button id="openDemo">Open popup</button> -->
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popup" role="dialog" aria-hidden="true" aria-modal="true">
+        <div class="popup-box" role="document">
+        <button class="close-btn" id="closeBtn" aria-label="Close popup">&times;</button>
+        <!-- Replace the image URL below with your own -->
+        <img src="Bright-Levels-High-Schools .jpg" alt="Popup image">
+        <p style="text-align:center; margin:8px 0 0"><b>Brights-Levels-High-Schools.</b></p>
+        </div>
+    </div>
+
+    <script>
+        // Run after DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+        const popup = document.getElementById('popup');
+        const closeBtn = document.getElementById('closeBtn');
+        const openDemo = document.getElementById('openDemo');
+
+        if (!popup) return; // nothing to do if element missing
+
+        function showPopup() {
+            popup.classList.add('is-visible');
+            popup.setAttribute('aria-hidden', 'false');
+        }
+        function hidePopup() {
+            popup.classList.remove('is-visible');
+            popup.setAttribute('aria-hidden', 'true');
+        }
+
+        // Show on page load
+        showPopup();
+
+        // Close when clicking the X
+        if (closeBtn) closeBtn.addEventListener('click', hidePopup);
+
+        // Close when clicking outside the popup box
+        popup.addEventListener('click', function (e) {
+            if (e.target === popup) hidePopup();
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') hidePopup();
+        });
+
+        // Demo reopen button
+        if (openDemo) openDemo.addEventListener('click', showPopup);
+
+        // Optional: auto close after 5 seconds (uncomment to enable)
+        // setTimeout(hidePopup, 5000);
+        });
+    </script>
+                <div class="row">
+                    <div class="champ">
+                        <h2>Bright Levels High Schools.</h2>
+                    </div>  
+                        <div class="pan">   
+                            <ul class="Motherfucker">
+                                <li><a href="#home">Home</a></li>
+                                <li><a href="#about us">About us</a></li>
+                                <li><a href="#contact">Contact us</a></li>
+                            </ul>
+                        </div>
+                </div>
+                
+                    <div class="line1">
+                        <div class="huge">
+                            <h1>Bright Levels High School</h1>
+                            <h2>Admission into Bright Levels High Schools Campuses for 2025/2026 Academic Session is in progress.</h2>
+                        </div>
+                        <div class="space1">
+                            <img src="logo.png" width="200" height="200" alt="">
+                        </div>
+                    </div>  
+                        <div  class="chase">
+                            <div class="life">
+                                <img src="lime.jpg" alt="child.jpg">
+                                    <h3>Apply for <br>Admission</h3>
+                                    <a href="form.html" style="text-decoration:none;">
+                                    <button>Apply Now</button>
+                                    <b><h2>Bright Levels High School, Lagos was commissioned in September, 2022. Join us on this exciting journey of growth and excellence as we nurture role models.</h2></b>
+                            </div>
+                            <div id="home" class="Move">
+                                    <!-- Button styled link -->
+                                    <a href="Application Form for Bright Levels High School.png" download>
+                                        <button>Download Application Form</button>
+                                    </a>
+                            </div>
+                        </div>
+        
+
+                        <div class="tent">
+                            <div class="dreams">
+                                <h1>Our School</h1>
+                                <h2>Here are some Statistics About our School.</h2>
+                                <img src="certificate.png" width="50"  alt="" > <h3>160 <br> Certified Teachers</h3>
+                                <img src="school (1).png"  width="50"> <h3>6<br>School </h3>
+                                <img src="graduation.png" width="50" alt=""> <h3>100%<br>Passing to Universities</h3>
+                            </div>
+                        </div>  
+                            <div id="about us" class="lame">
+                                <div class="lime">
+                                    <h1>About US</h1>
+
+                                        <p><b>Bright Levels High Schools  was established in 1995 starting with Bright Levels High Nursery and Primary School, Lagos, Nigeria.</b></p>
+
+                                        <p><b>Our Aim at Bright Levels High Schools is to be widely acclaimed locally and internationally as a school that trains and turns out students who have been adequately prepared for tertiary education and life.</b></p>
+                                        
+                                        <p><b>Our Mission Statement is “To produce the total child through a holistic education programme that benchmarks best practices while being socially responsible.”</b></p>
+                                        <p><b>At Bright Levels High Schools, we believe education is the foundation for a brighter future. Our mission is to nurture well-rounded individuals by combining academic excellence with strong moral values, creativity, and critical thinking skills.</b></p>
+                                        <p><b>We provide a safe, inclusive, and engaging learning environment where students can explore their passions, develop their talents, and  grow into confident, responsible citizens. With a team of dedicated educators, state-of-the-art facilities, and a curriculum  designed to inspire lifelong learning, we  ensure every child reaches their full potential.</p>
+                                        <h4>What We Offer🫴✅</h4>  
+                                    <ul>
+                                        <li><p>Quality Education: A balanced curriculum blending academics, technology, and practical skills.</p></li> 
+                                    
+                                        <li><p>Modern Facilities: Well-equipped classrooms, science labs, library, and ICT centers.</p></li>
+
+                                        <li><p>Co-Curricular Activities: Sports, arts, music, and leadership programs to build confidence and teamwork.</p></li>
+
+                                        <li><p>Personalized Support: Guidance counseling and mentorship programs for every student.</p></li>
+                                    </ul>
+                                    <h4>Join Our Community</h4>
+
+                                    <h4>Whether you are a parent seeking a nurturing school for your child or a student eager to learn and grow, Bright Levels High Schools is the perfect place to begin your journey.</h4>
+                                    <h4>Explore our programs, meet our passionate teachers, and discover why we are one of the leading schools in Lagos State.</h4>
+
+                                    <h4>[Enroll Now] | [Learn More About Us]</h4>
+                                </div>
+
+                                <div class="late">
+                                    <img src="renz.jpeg" width="320px" alt="">
+                                    <h2>Mr. Michael Chibuzor<br> Director,Bright Levels Schools</h2>
+                                </div>
+                            </div>
+
+                    <div id="contact" class="demo">
+                        <div class="left">
+                            <h1>Contact</h1>
+                            yungcameron118@gmail.com
+                            <h2>Based in</h2>
+                            Lagos,<br><br>
+                            Nigeria.
+                        </div>
+
+                        <div class="right">
+                            <input type="text" name="Name"  id="" height="10px"><br><br>
+
+                            <input type="text" name="Email"  id="" height="10px" width="25px"><br><br>
+
+                            <textarea name="" id=""></textarea><br>
+
+                            <!-- Button styled link --> <br>
+
+                            <button>Contact Us</button > <a href="https://mail.google.com/mail/u/0/#inbox"></a><br><br>
+                            <a href="https://web.facebook.com/profile.php?id=61574497868852"><i class="fa-brands fa-square-facebook" style="margin: right 15px;"></i></a>
+                            <a href="https://www.instagram.com/yungcameron01/?__pwa=1"><i class="fa-brands fa-instagram" style="margin: right 15px;"></i></a>
+                            <a href=" https://wa.me/2348126463871"><i class="fa-brands fa-square-whatsapp" style="margin: right 15px;"></i></a> 
+                            <hr>
+                            <h3>Bright Levels High Schools. Copyright &#169 2024 All Rights Reserved.</h3>
+                                    <h4>Designed by Yung Cameron.</h4>
+                        </div>
+                    </div>  
+        </body>
+</html>

@@ -1,0 +1,161 @@
+.champ{
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.Motherfucker{
+    list-style: none;
+    background-color:whitesmoke;
+    display: flex;
+    justify-content: center;
+}
+.Motherfucker a {
+    list-style: none;
+    text-decoration:whitesmoke;
+    text-decoration: none;
+}
+.Motherfucker li {
+    padding: 20px;
+    font-size: larger;
+}
+.line1{
+    display: flex;
+    margin-right: 1px;
+    margin-left: 50px;
+}
+.huge h2{
+    margin-left: 70px;
+    margin-top: 30px;
+    color: black;
+}
+.space1{
+    display:flex;
+justify-content: left; 
+}
+
+.huge h1{
+    color:black;
+}
+.chase{
+    background-color: rgb(38, 0, 128);
+    display: flex;
+    justify-content: first baseline;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+}
+.life h3{
+    color:white;
+}
+.life h2{
+    color: white;
+}
+.Family h2{
+    color:black;
+}
+.tent{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color:rgb(38, 0, 128);
+    color: white;
+    /* height: 500px;  */
+    margin-top: 80px;
+    /* border-radius: 25px; */
+    margin-bottom: 35px; 
+    margin-left: 25px;
+    margin-right: 25px;
+
+
+
+}
+
+.trench h4{
+    color:rgba(52, 15, 237, 0.54);
+    display: flex;
+    gap: 9px;
+}
+.tent h3{
+    display: flex;
+    justify-content: baseline;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.027);
+    height: 300px;
+    width:  300px;
+    margin: 10px;
+    display: inline-block;
+}
+.Move h3 a{
+    list-style: none;
+    text-decoration: none;
+}
+.trench h3{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    padding-left: 10px;
+    margin-right: 15px;
+    color: white;
+
+}
+.dreams h3{
+    font-size: larger;
+    color: white;
+}
+
+.trench h4{
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    color: white;
+}
+.password{
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+    gap: 8px;
+    margin-left: 85px;
+}
+
+.demo{
+    display: flex;
+    padding: 20px;
+    background-color:rgb(38, 0, 128);
+    gap: 200px;
+    color:white;
+    margin-top: 20px;
+    border-radius: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+
+
+}
+.right{
+    gap: 100px;
+}
+i {
+  font-size: 30px;  /* increase size */
+  color: white;       /* change color */
+}
+.rex{
+    display: flex;
+    text-decoration-line: inherit;
+}
+.lame{
+    display: flex;
+    padding: 50px;
+    gap: 100px;
+    margin-top: 20px;
+    border-radius: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 50px;
+    background-color: rgb(51, 233, 51);
+}
+.late{
+    gap: 100px;
+}
+.lime{
+    font-family: Arial, sans-serif;
+} 
