@@ -6,53 +6,69 @@
     <title>Bright Level Schools </title>
     <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
-</head>
-        <body>  
-                <style>
-        /* overlay */
-        .popup-overlay {
-        position: fixed;
-        inset: 0; /* shorthand for top/right/bottom/left:0 */
-        background: rgba(0,0,0,0.6);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        }
-        .popup-overlay.is-visible { display: flex; }
-
-        .popup-box {
-        background: #fff;
-        border-radius: 10px;
-        padding: 10px;
-        max-width: 90%;
-        width: 420px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-        position: relative;
-        animation: pop .25s ease;
-        }
-        @keyframes pop { from { transform: scale(.95); opacity: 0 } to { transform: scale(1); opacity: 1 } }
-
-        .popup-box img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 8px;
-        }
-
-        .close-btn {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        background: transparent;
-        border: none;
-        font-size: 22px;
-        cursor: pointer;
-        line-height: 1;
-        }
-    </style>
         </head>
-        <body>
+            <body>  
+                <style>
+                    * {
+                    box-sizing: border-box;
+                    }
+
+                    img, iframe, video {
+                    max-width: 100%;
+                    height: auto;
+                    }
+
+                    body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Arial, sans-serif;
+                    }
+                </style>
+                <style>
+                    /* overlay */
+                    .popup-overlay {
+                    position: fixed;
+                    inset: 0; /* shorthand for top/right/bottom/left:0 */
+                    background: rgba(0,0,0,0.6);
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 9999;
+                    }
+                    .popup-overlay.is-visible { display: flex; }
+
+                    .popup-box {
+                    background: #fff;
+                    border-radius: 10px;
+                    padding: 10px;
+                    max-width: 90%;
+                    width: 420px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+                    position: relative;
+                    animation: pop .25s ease;
+                    }
+                    @keyframes pop { from { transform: scale(.95); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+
+                    .popup-box img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    border-radius: 8px;
+                    }
+
+                    .close-btn {
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                    background: transparent;
+                    border: none;
+                    font-size: 22px;
+                    cursor: pointer;
+                    line-height: 1;
+                    }
+                </style>
+            <body>
+        </head>
         <!-- <h1>My Website</h1>
     <p>Some page content here. Click the button to re-open the popup.</p>
     <button id="openDemo">Open popup</button> -->
@@ -108,6 +124,7 @@
         // setTimeout(hidePopup, 5000);
         });
     </script>
+    
                 <div class="row">
                     <div class="champ">
                         <h2>Bright Levels High Schools.</h2>
