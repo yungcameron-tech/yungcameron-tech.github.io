@@ -1,3 +1,7 @@
+.body {
+  flex: 1 1 300px; /* grow, shrink, minimum width */
+  margin: 10px;
+}
 .champ{
     background-color: green;
     display: flex;
@@ -167,3 +171,4 @@ i {
     font-family: Arial, sans-serif;
 
 } 
+
