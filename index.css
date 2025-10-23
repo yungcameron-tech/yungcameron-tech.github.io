@@ -1,3 +1,39 @@
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  /* Tablets and smaller */
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Small phones */
+  h1 {
+    font-size: 22px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
 .body {
   flex: 1 1 300px; /* grow, shrink, minimum width */
   margin: 10px;
@@ -171,4 +207,5 @@ i {
     font-family: Arial, sans-serif;
 
 } 
+
 
