@@ -3,267 +3,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bright Level Schools </title>
-    <link rel="stylesheet" href="index.css">
+    <title>Bright Level Schools</title>
     <script src="https://kit.fontawesome.com/e674bba739.js" crossorigin="anonymous"></script>
+    
+    <style>
+        /* ==========================================================================
+           1. GLOBAL STYLES & VARIABLES
+           ========================================================================== */
+        :root {
+            --primary-blue: rgb(38, 0, 128);
+            --primary-green: rgb(51, 233, 51);
+            --dark-green: green;
+            --whitesmoke: #f5f5f5;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --site-padding: 5%;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        img, iframe, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* ==========================================================================
+           2. POPUP MODAL
+           ========================================================================== */
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .popup-overlay.is-visible { 
+            display: flex; 
+        }
+
+        .popup-box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 90%;
+            width: 420px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            position: relative;
+            animation: pop .25s ease;
+        }
+
+        @keyframes pop { 
+            from { transform: scale(.95); opacity: 0 } 
+            to { transform: scale(1); opacity: 1 } 
+        }
+
+        .popup-box img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: transparent;
+            border: none;
+            font-size: 26px;
+            cursor: pointer;
+            line-height: 1;
+            color: #333;
+        }
+
+        /* ==========================================================================
+           3. NAVIGATION & HEADERS
+           ========================================================================== */
+        .champ {
+            background-color: var(--dark-green);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-light);
+            padding: 15px text-align: center;
+        }
+
+        .champ h2 {
+            font-size: 1.5rem;
+        }
+
+        .Motherfucker {
+            list-style: none;
+            background-color: var(--whitesmoke);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+
+        .Motherfucker li {
+            padding: 10px 20px;
+            font-size: 1.1rem;
+        }
+
+        .Motherfucker a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .Motherfucker a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Layout */
+        .line1 {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 20px;
+            padding: 40px var(--site-padding);
+            align-items: center;
+        }
+
+        .huge h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .huge h2 {
+            font-size: 1.2rem;
+            font-weight: normal;
+            color: #555;
+        }
+
+        .space1 img {
+            max-width: 150px;
+        }
+
+        /* ==========================================================================
+           4. MAIN SECTIONS
+           ========================================================================== */
+        /* Chase / Call to Action */
+        .chase {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 30px;
+            margin: 25px var(--site-padding);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .life {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .life img {
+            border-radius: 8px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .life h2 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin-top: 15px;
+        }
+
+        .Move {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Statistics Tent */
+        .tent {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 40px var(--site-padding);
+            margin: 35px var(--site-padding);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .tent h1 { margin-bottom: 10px; }
+        .tent h2 { font-size: 1.2rem; margin-bottom: 30px; font-weight: normal; opacity: 0.9; }
+
+        .dreams {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* About Us Section */
+        .lame {
+            background-color: var(--primary-green);
+            padding: 40px var(--site-padding);
+            margin: 40px var(--site-padding);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .lime h1 { margin-bottom: 20px; }
+        .lime p { margin-bottom: 15px; font-size: 1.05rem; }
+        .lime h4 { margin: 25px 0 10px; font-size: 1.2rem; }
+        
+        .lime ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .lime li { margin-bottom: 10px; }
+
+        .late {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            align-self: center;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .late img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        /* ==========================================================================
+           5. CONTACT FOOTER BLOCK
+           ========================================================================== */
+        .demo {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 40px var(--site-padding);
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .left h1 { margin-bottom: 15px; }
+        .left h2 { margin: 20px 0 5px; font-size: 1.3rem; }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .right input, .right textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .right textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .social-links i {
+            font-size: 35px;
+            transition: transform 0.2s;
+        }
+
+        .social-links i:hover { transform: scale(1.1); }
+        .fa-square-facebook { color: #1877F2; }
+        .fa-instagram { color: #E4405F; }
+        .fa-square-whatsapp { color: #25D366; }
+
+        .demo hr {
+            border: 0;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            margin: 20px 0;
+        }
+
+        .demo h3 { font-size: 1rem; font-weight: normal; opacity: 0.8; }
+        .demo h4 { font-size: 0.9rem; font-weight: normal; opacity: 0.6; margin-top: 5px; }
+
+        /* ==========================================================================
+           6. MEDIA QUERIES (PC / RESPONSIVE DESKTOP)
+           ========================================================================== */
+        @media (min-width: 768px) {
+            .line1 {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+            .space1 img { max-width: 200px; }
+            
+            .chase {
+                flex-direction: row;
+                align-items: center;
+            }
+            .life { flex: 2; }
+            .Move { flex: 1; }
+
+            .lame {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .lime { flex: 2; }
+            .late { flex: 1; align-self: flex-start; }
+
+            .demo {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .left, .right { flex: 1; }
+            .right { max-width: 450px; }
+        }
+    </style>
 </head>
-            <body>  
-                <style>
-                    * {
-                    box-sizing: border-box;
-                    }
+<body>  
 
-                    img, iframe, video {
-                    max-width: 100%;
-                    height: auto;
-                    }
-
-                    body {
-                    margin: 0;
-                    padding: 0;
-                    font-family: Arial, sans-serif;
-                    }
-                </style>
-                <style>
-                    /* overlay */
-                    .popup-overlay {
-                    position: fixed;
-                    inset: 0; /* shorthand for top/right/bottom/left:0 */
-                    background: rgba(0,0,0,0.6);
-                    display: none;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 9999;
-                    }
-                    .popup-overlay.is-visible { display: flex; }
-
-                    .popup-box {
-                    background: #fff;
-                    border-radius: 10px;
-                    padding: 10px;
-                    max-width: 90%;
-                    width: 420px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-                    position: relative;
-                    animation: pop .25s ease;
-                    }
-                    @keyframes pop { from { transform: scale(.95); opacity: 0 } to { transform: scale(1); opacity: 1 } }
-
-                    .popup-box img {
-                    width: 100%;
-                    height: auto;
-                    display: block;
-                    border-radius: 8px;
-                    }
-
-                    .close-btn {
-                    position: absolute;
-                    top: 8px;
-                    right: 8px;
-                    background: transparent;
-                    border: none;
-                    font-size: 22px;
-                    cursor: pointer;
-                    line-height: 1;
-                    }
-                </style>
-            <body>
-       
-        <!-- <h1>My Website</h1>
-    <p>Some page content here. Click the button to re-open the popup.</p>
-    <button id="openDemo">Open popup</button> -->
-
-    <!-- Popup -->
     <div class="popup-overlay" id="popup" role="dialog" aria-hidden="true" aria-modal="true">
         <div class="popup-box" role="document">
-        <button class="close-btn" id="closeBtn" aria-label="Close popup">&times;</button>
-        <!-- Replace the image URL below with your own -->
-        <img src="Bright-Levels-High-Schools .jpg" alt="Popup image">
-        <p style="text-align:center; margin:8px 0 0"><b>Brights-Levels-High-Schools.</b></p>
+            <button class="close-btn" id="closeBtn" aria-label="Close popup">&times;</button>
+            <img src="Bright-Levels-High-Schools .jpg" alt="Popup Announcement">
+            <p style="text-align:center; margin:12px 0 0; color: #333;"><b>Brights-Levels-High-Schools.</b></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="champ">
+            <h2>Bright Levels High Schools.</h2>
+        </div>  
+        <div class="pan">   
+            <ul class="Motherfucker">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-us">About us</a></li>
+                <li><a href="#contact">Contact us</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="line1">
+        <div class="huge">
+            <h1>Bright Levels High School</h1>
+            <h2>Admission into Bright Levels High Schools Campuses for 2025/2026 Academic Session is in progress.</h2>
+        </div>
+        <div class="space1">
+            <img src="logo.png" alt="School Logo">
+        </div>
+    </div>  
+
+    <div class="chase">
+        <div class="life">
+            <img src="lime.jpg" alt="Students Learning">
+            <h3>Apply for Admission</h3>
+            <a href="form.html">
+                <button>Apply Now</button>
+            </a>
+            <h2>Bright Levels High School, Lagos was commissioned in September, 2022. Join us on this exciting journey of growth and excellence as we nurture role models.</h2>
+        </div>
+        <div id="home" class="Move">
+            <a href="Application Form for Bright Levels High School.png" download>
+                <button>Download Application Form</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="tent">
+        <h1>Our School</h1>
+        <h2>Here are some Statistics About our School.</h2>
+        <div class="dreams">
+            <div class="stat-item">
+                <img src="certificate.png" width="50" alt="Icon"> 
+                <h3>160 <br> Certified Teachers</h3>
+            </div>
+            <div class="stat-item">
+                <img src="school (1).png" width="50" alt="Icon"> 
+                <h3>6<br>Schools</h3>
+            </div>
+            <div class="stat-item">
+                <img src="graduation.png" width="50" alt="Icon"> 
+                <h3>100%<br>Passing to Universities</h3>
+            </div>
+        </div>
+    </div>  
+
+    <div id="about-us" class="lame">
+        <div class="lime">
+            <h1>About US</h1>
+            <p><b>Bright Levels High Schools was established in 1995 starting with Bright Levels High Nursery and Primary School, Lagos, Nigeria.</b></p>
+            <p><b>Our Aim at Bright Levels High Schools is to be widely acclaimed locally and internationally as a school that trains and turns out students who have been adequately prepared for tertiary education and life.</b></p>
+            <p><b>Our Mission Statement is “To produce the total child through a holistic education programme that benchmarks best practices while being socially responsible.”</b></p>
+            <p><b>At Bright Levels High Schools, we believe education is the foundation for a brighter future. Our mission is to nurture well-rounded individuals by combining academic excellence with strong moral values, creativity, and critical thinking skills.</b></p>
+            <p><b>We provide a safe, inclusive, and engaging learning environment where students can explore their passions, develop their talents, and grow into confident, responsible citizens. With a team of dedicated educators, state-of-the-art facilities, and a curriculum designed to inspire lifelong learning, we ensure every child reaches their full potential.</b></p>
+            
+            <h4>What We Offer 🫴✅</h4>  
+            <ul>
+                <li><p>Quality Education: A balanced curriculum blending academics, technology, and practical skills.</p></li> 
+                <li><p>Modern Facilities: Well-equipped classrooms, science labs, library, and ICT centers.</p></li>
+                <li><p>Co-Curricular Activities: Sports, arts, music, and leadership programs to build confidence and teamwork.</p></li>
+                <li><p>Personalized Support: Guidance counseling and mentorship programs for every student.</p></li>
+            </ul>
+
+            <h4>Join Our Community</h4>
+            <p>Whether you are a parent seeking a nurturing school for your child or a student eager to learn and grow, Bright Levels High Schools is the perfect place to begin your journey.</p>
+            <p>Explore our programs, meet our passionate teachers, and discover why we are one of the leading schools in Lagos State.</p>
+            <p><b>[Enroll Now] | [Learn More About Us]</b></p>
+        </div>
+
+        <div class="late">
+            <img src="renz.jpeg" alt="Director Picture">
+            <h2>Mr. Michael Chibuzor<br><span style="font-size: 1rem; font-weight: normal;">Director, Bright Levels Schools</span></h2>
+        </div>
+    </div>
+
+    <div id="contact" class="demo">
+        <div class="left">
+            <h1>Contact</h1>
+            <p>michaelchibuzor118@gmail.com</p>
+            <h2>Based in</h2>
+            <p>Lagos, Nigeria.</p>
+        </div>
+
+        <div class="right">
+            <form action="#">
+                <input type="text" name="Name" placeholder="Your Name" required><br><br>
+                <input type="email" name="Email" placeholder="Your Email Address" required><br><br>
+                <textarea name="Message" placeholder="Type your message here..." required></textarea><br><br>
+                <button type="submit">Contact Us</button>
+            </form>
+            
+            <div class="social-links">
+                <a href="https://web.facebook.com/profile.php?id=61574497868852" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href="https://www.instagram.com/yungcameron01/?__pwa=1" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/2348126463871" target="_blank"><i class="fa-brands fa-square-whatsapp"></i></a> 
+            </div>
+            
+            <hr>
+            <h3>Bright Levels High Schools. Copyright &#169; 2026 All Rights Reserved.</h3>
+            <h4>Designed by Yung Cameron.</h4>
         </div>
     </div>
 
     <script>
-        // Run after DOM is ready
         document.addEventListener('DOMContentLoaded', function () {
-        const popup = document.getElementById('popup');
-        const closeBtn = document.getElementById('closeBtn');
-        const openDemo = document.getElementById('openDemo');
+            const popup = document.getElementById('popup');
+            const closeBtn = document.getElementById('closeBtn');
 
-        if (!popup) return; // nothing to do if element missing
+            if (!popup) return;
 
-        function showPopup() {
-            popup.classList.add('is-visible');
-            popup.setAttribute('aria-hidden', 'false');
-        }
-        function hidePopup() {
-            popup.classList.remove('is-visible');
-            popup.setAttribute('aria-hidden', 'true');
-        }
+            function showPopup() {
+                popup.classList.add('is-visible');
+                popup.setAttribute('aria-hidden', 'false');
+            }
+            function hidePopup() {
+                popup.classList.remove('is-visible');
+                popup.setAttribute('aria-hidden', 'true');
+            }
 
-        // Show on page load
-        showPopup();
+            showPopup();
 
-        // Close when clicking the X
-        if (closeBtn) closeBtn.addEventListener('click', hidePopup);
+            if (closeBtn) closeBtn.addEventListener('click', hidePopup);
 
-        // Close when clicking outside the popup box
-        popup.addEventListener('click', function (e) {
-            if (e.target === popup) hidePopup();
-        });
+            popup.addEventListener('click', function (e) {
+                if (e.target === popup) hidePopup();
+            });
 
-        // Close on Escape
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') hidePopup();
-        });
-
-        // Demo reopen button
-        if (openDemo) openDemo.addEventListener('click', showPopup);
-
-        // Optional: auto close after 5 seconds (uncomment to enable)
-        // setTimeout(hidePopup, 5000);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') hidePopup();
+            });
         });
     </script>
-    
-                <div class="row">
-                    <div class="champ">
-                        <h2>Bright Levels High Schools.</h2>
-                    </div>  
-                        <div class="pan">   
-                            <ul class="Motherfucker">
-                                <li><a href="#home">Home</a></li>
-                                <li><a href="#about us">About us</a></li>
-                                <li><a href="#contact">Contact us</a></li>
-                            </ul>
-                        </div>
-                </div>
-                
-                    <div class="line1">
-                        <div class="huge">
-                            <h1>Bright Levels High School</h1>
-                            <h2>Admission into Bright Levels High Schools Campuses for 2025/2026 Academic Session is in progress.</h2>
-                        </div>
-                        <div class="space1">
-                            <img src="logo.png" width="100" height="100" alt="">
-                        </div>
-                    </div>  
-                        <div  class="chase">
-                            <div class="life">
-                                <img src="lime.jpg" alt="child.jpg">
-                                    <h3>Apply for <br>Admission</h3>
-                                    <a href="form.html" style="text-decoration:none;">
-                                    <button>Apply Now</button>
-                                    <b><h2>Bright Levels High School, Lagos was commissioned in September, 2022. Join us on this exciting journey of growth and excellence as we nurture role models.</h2></b>
-                            </div>
-                            <div id="home" class="Move">
-                                    <!-- Button styled link -->
-                                    <a href="Application Form for Bright Levels High School.png" download>
-                                        <button>Download Application Form</button>
-                                    </a>
-                            </div>
-                        </div>
-        
-
-                        <div class="tent">
-                            <div class="dreams">
-                                <h1>Our School</h1>
-                                <h2>Here are some Statistics About our School.</h2>
-                                <img src="certificate.png" width="50"  alt="" > <h3>160 <br> Certified Teachers</h3>
-                                <img src="school (1).png"  width="50"> <h3>6<br>School </h3>
-                                <img src="graduation.png" width="50" alt=""> <h3>100%<br>Passing to Universities</h3>
-                            </div>
-                        </div>  
-                            <div id="about us" class="lame">
-                                <div class="lime">
-                                    <h1>About US</h1>
-
-                                        <p><b>Bright Levels High Schools  was established in 1995 starting with Bright Levels High Nursery and Primary School, Lagos, Nigeria.</b></p>
-
-                                        <p><b>Our Aim at Bright Levels High Schools is to be widely acclaimed locally and internationally as a school that trains and turns out students who have been adequately prepared for tertiary education and life.</b></p>
-                                        
-                                        <p><b>Our Mission Statement is “To produce the total child through a holistic education programme that benchmarks best practices while being socially responsible.”</b></p>
-                                        <p><b>At Bright Levels High Schools, we believe education is the foundation for a brighter future. Our mission is to nurture well-rounded individuals by combining academic excellence with strong moral values, creativity, and critical thinking skills.</b></p>
-                                        <p><b>We provide a safe, inclusive, and engaging learning environment where students can explore their passions, develop their talents, and  grow into confident, responsible citizens. With a team of dedicated educators, state-of-the-art facilities, and a curriculum  designed to inspire lifelong learning, we  ensure every child reaches their full potential.</p>
-                                        <h4>What We Offer🫴✅</h4>  
-                                    <ul>
-                                        <li><p>Quality Education: A balanced curriculum blending academics, technology, and practical skills.</p></li> 
-                                    
-                                        <li><p>Modern Facilities: Well-equipped classrooms, science labs, library, and ICT centers.</p></li>
-
-                                        <li><p>Co-Curricular Activities: Sports, arts, music, and leadership programs to build confidence and teamwork.</p></li>
-
-                                        <li><p>Personalized Support: Guidance counseling and mentorship programs for every student.</p></li>
-                                    </ul>
-                                    <h4>Join Our Community</h4>
-
-                                    <h4>Whether you are a parent seeking a nurturing school for your child or a student eager to learn and grow, Bright Levels High Schools is the perfect place to begin your journey.</h4>
-                                    <h4>Explore our programs, meet our passionate teachers, and discover why we are one of the leading schools in Lagos State.</h4>
-
-                                    <h4>[Enroll Now] | [Learn More About Us]</h4>
-                                </div>
-
-                                <div class="late">
-                                    <img src="renz.jpeg" width="100px" alt="">
-                                    <h2>Mr. Michael Chibuzor<br> Director,Bright Levels Schools</h2>
-                                </div>
-                            </div>
-
-                    <div id="contact" class="demo">
-                        <div class="left">
-                            <h1>Contact</h1>
-                            yungcameron118@gmail.com
-                            <h2>Based in</h2>
-                            Lagos,<br><br>
-                            Nigeria.
-                        </div>
-
-                        <div class="right">
-                            <input type="text" name="Name"  id="" height="10px"><br><br>
-
-                            <input type="text" name="Email" style="color: white;"  id="" height="10px" width="25px"><br><br>
-
-                            <textarea name="" id=""></textarea><br>
-
-                                <style>
-                                    /* Button styling */
-                                    button {
-                                    background-color: #007bff;
-                                    color: white;
-                                    padding: 10px 20px;
-                                    border-radius: 8px;
-                                    cursor: pointer;
-                                    font-size: 16px;
-                                    }
-
-                                    button:hover {
-                                    background-color: #0056b3;
-                                    }
-
-
-                                    /* Individual icon colors */
-                                    .fa-square-facebook {
-                                    color: #1877F2;
-                                    }
-
-                                    .fa-instagram {
-                                    color: #E4405F;
-                                    }
-
-                                    .fa-square-whatsapp {
-                                    color: #25D366;
-                                    }
-                            </style>
-                            <!-- Button styled link --> <br>
-
-                            <button>Contact Us</button > <a href="https://mail.google.com/mail/u/0/#inbox"></a><br><br>
-                            <a href="https://web.facebook.com/profile.php?id=61574497868852"><i class="fa-brands fa-square-facebook" style="margin: right 25px;"></i></a>
-                            <a href="https://www.instagram.com/yungcameron01/?__pwa=1"><i class="fa-brands fa-instagram" style="margin: right 25px;"></i></a>
-                            <a href=" https://wa.me/2348126463871"><i class="fa-brands fa-square-whatsapp" style="margin: right 25px;"></i></a> 
-                            <hr>
-                            <h3>Bright Levels High Schools. Copyright &#169 2024 All Rights Reserved.</h3>
-                                    <h4>Designed by Yung Cameron.</h4>
-                        </div>
-                    </div>  
-        </body>
-
+</body>
 </html>
